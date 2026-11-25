@@ -9,6 +9,10 @@ import os
 
 JOKE = "I always carry a pencil, just in case I need to draw the line somewhere."
 
+# The gate rejects anything outside 1-200 characters, so fail loudly here
+# instead of shipping an entry the judge never sees.
+assert 1 <= len(JOKE) <= 200, f"joke is {len(JOKE)} characters, gate needs 1-200"
+
 
 def main() -> None:
     os.makedirs("/output", exist_ok=True)
